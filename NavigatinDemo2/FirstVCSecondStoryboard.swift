@@ -24,7 +24,9 @@ class FirstVCSecondStoryboard: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-            let vc = segue.destination as! ViewController
+        guard let navigationController = segue.destination as? UINavigationController else { return }
+        guard let vc = segue.destination as? ViewController else { return }
+
             vc.text2 = TextFieldNumber2.text
         }
 
